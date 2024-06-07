@@ -1,0 +1,188 @@
+:root
+{
+      --primary-color: #65d36e;
+      --text-color: #B3B3B3;
+      --white-color:#ffffff;
+      --background-color: rgba(18, 18, 18, 1);
+      --background-color-rgba: rgba(139, 139, 139, 0.15);
+      --background-color-rgba-hover: rgba(139, 139, 139, 0.2);
+      --background-linear: linear-gradient(#222222, #161616);
+      --width-sidebar: 300px;
+      --height-header:100px;
+      --height-footer:90px;
+}
+
+::-webkit-scrollbar{
+      height: 3px;
+      width: 3px;
+      background: gray;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888; 
+border-radius: 40px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+
+::-webkit-scrollbar-thumb:horizontal{
+background: #4d4d4d;
+border-radius: 40px;
+}
+
+/* custom range */
+.progress {
+      /* removing default appearance */
+      -webkit-appearance: none;
+      appearance: none; 
+      /* creating a custom design */
+      width: 60%;
+      cursor: pointer;
+      outline: none;
+      border-radius: 15px;
+      /*  overflow: hidden;  remove this line*/
+
+      /* New additions */
+      height: 4px;
+      background: #ccc;
+}
+
+/* Thumb: webkit */
+.progress::-webkit-slider-thumb {
+      /* removing default appearance */
+      -webkit-appearance: none;
+      appearance: none; 
+      /* creating a custom design */
+      height: 10px;
+      width: 10px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      border: none;
+      transition: .2s ease-in-out;
+      /* display: none; */
+}
+
+/* Thumb: Firefox */
+.progress::-moz-range-thumb {
+      height: 15px;
+      width: 15px;
+      background-color: #f50;
+      border-radius: 50%;
+      border: none;
+      transition: .2s ease-in-out;
+}
+
+.audio-progress
+{
+      -webkit-appearance: none;
+      appearance: none; 
+      /* creating a custom design */
+      width: 100%;
+      cursor: pointer;
+      outline: none;
+      border-radius: 15px;
+      /*  overflow: hidden;  remove this line*/
+
+      /* New additions */
+      height: 4px;
+      background: #ccc;
+      margin-left: 15px;
+}
+
+.audio-progress::-webkit-slider-thumb
+{
+      /* removing default appearance */
+      -webkit-appearance: none;
+      appearance: none; 
+      /* creating a custom design */
+      height: 10px;
+      width: 10px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      border: none;
+      transition: .2s ease-in-out;
+      /* display: none; */
+}
+
+/* Dùng chung */
+
+.btn 
+{
+      display:inline-block;
+      text-decoration: none;
+      background-color: var(--background-color-rgba);
+      border:none;
+      outline: none;
+      padding: 6px 12px;
+      border-radius: 40px;
+      min-width: 56px;
+      font-size: 1.2rem;
+      text-align: center;
+}
+
+.btn + .btn 
+{
+      margin-left: 4px;
+}
+
+.btn 
+{
+      font-weight: 600;
+      color: var(--white-color);
+}
+
+.btn:hover
+{
+      background-color: var(--background-color-rgba-hover);
+      transition: all 0.2s ease;
+      cursor: pointer;
+}
+
+.btn.btn--active
+{
+      background-color: var(--white-color);
+      color: #000;      
+}
+
+
+/* ---------------------------------------------------------------- */
+
+*
+{
+box-sizing: inherit;
+}
+
+html
+{
+/* tương đương 10px */
+font-size: 62.5%;
+/* tương đương 16px */
+line-height: 1.6rem;
+font-family: "CircularStd";
+box-sizing: border-box;
+color: var(--text-color);
+background-color: #000;
+}
+
+@keyframes growUp {
+      from
+      {
+            transform: translateY(12px);
+            opacity: 0;
+      }
+      to
+      {
+            transform: translateY(0);
+            opacity: 1;
+      }
+}

@@ -1,0 +1,171 @@
+/* 
+      @media not | only mediatype and ( mediafeature and | or | not mediafeature)
+      {
+            CSS code
+      }
+
+      
+      NOTE: Kích thước break points
+
+      Mobile : width < 740px
+
+      Tablet : width >= 740px and width < 1024px
+
+      Pc: width >= 1024px
+
+      NOTE: Nên dùng EM thay vì PX
+
+      NOTE: Tham khảo thêm về rem và em " https://viblo.asia/p/em-rem-trong-css-naQZRGjPlvx"
+      
+
+
+      Responsive tablet 
+
+      row playlist-container__foryou: 
+      element.style 
+      {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+      }
+
+*/
+
+/* Dùng chung cho cả tablet và mobile */
+@media (max-width: 1023px)
+{
+      .hide-on-mb-tl
+      {
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: all 0.2s ease;
+      }
+      
+      .header,
+      .main
+      {
+            margin-left: 0;
+      }
+
+      .navbar-control__icon--sidebar
+      {
+            display: inline-block;
+      }
+
+      .footer-option__sound
+      {
+            position: relative;
+      }
+
+      .progress
+      {
+            height: 6px;
+      }
+
+      .progress::-webkit-slider-thumb
+      {
+            display: block;
+      }
+
+      .audio-progress
+      {
+            position: absolute;
+            top: -60px;
+            left: -50px;
+            transform: rotate(270deg);
+            width: 500%;
+            height: 4px;
+            display: none;
+      }
+
+      .footer-option__sound:hover .audio-progress
+      {
+            display: block;
+            height: 8px;
+      }
+
+      .audio-progress::-webkit-slider-thumb
+      {
+            width: 12px;
+            height: 12px;
+            display: block;
+      }
+}
+
+
+/* Tablet */
+@media (min-width:740px) and (max-width:1023px)
+{
+      .overlay.active + .hide-on-mb-tl
+      {
+            background-color: black;
+            transform: translateX(0);
+            opacity: 1;
+            transition: all 0.2s ease;
+      }
+
+      .current-song__thumb
+      {
+            width: 50%;
+            padding-top: 25%;
+      }
+}
+
+/* mobile */
+@media (max-width:730px)
+{
+      .hide-on-mb
+      {
+            display: none;
+      }
+
+      .sidebar
+      {
+            width: 250px;
+      }
+
+      .overlay.active + .hide-on-mb-tl
+      {
+            background-color: black;
+            transform: translateX(0);
+            opacity: 1;
+            transition: all 0.2s ease;
+      }
+
+      .current-song__thumb
+      {
+            width: 60%;
+            padding-top: 60%;
+            border-radius: 50%;
+      }
+
+      .time-control
+      {
+            width: 100%;
+      }
+
+      .volume-icon 
+      {
+            font-size: 2rem;
+      }
+
+      .audio-progress 
+      {
+            position: absolute;
+            top: -60px;
+            left: -52px;
+            transform: rotate(270deg);
+            width: 400%;
+            height: 4px;
+            display: none;
+      }
+
+      .footer-option
+      {
+            justify-content: center;
+      }
+      
+}
+
+

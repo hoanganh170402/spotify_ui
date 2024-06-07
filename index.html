@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/@vetixy/circular-std@1.0.0/dist/index.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="./Assets/Css/base.css">
+      <link rel="stylesheet" href="./Assets/Css/style.css">
+      <link rel="stylesheet" href="./Assets/Css/grid.css">
+      <link rel="stylesheet" href="./Assets/Css/responsive.css">
+      <link rel="shortcut icon" href="#" />
+      <title>Spotify_UI</title>
+
+      <!-- font awesome -->
+      <!-- <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"> -->
+</head>
+<body>
+      <div class="container">
+            <!-- Header -->
+            <header class="header">
+                  <div class="navbar">
+                        <div class="navbar-control">
+                              <i class="fa-solid fa-bars navbar-control__icon navbar-control__icon--sidebar"></i>
+                              <i class="fa-solid fa-angle-left navbar-control__icon"></i>
+                              <i class="fa-solid fa-angle-right navbar-control__icon"></i>
+                        </div>
+
+                        <div class="navbar-option">
+                              <i class="fa-regular fa-envelope navbar-control__icon"></i>
+                              <i class="fa-regular fa-bell navbar-control__icon"></i>
+                              <i class="fa-solid fa-users navbar-control__icon"></i>
+                              <img src="./Assets/Img/ava.JPG" alt="" class="navbar-option__ava">
+                        </div>
+                  </div>
+                  <div class="navbar-btn">
+                        <div class="btn"> All</div>
+                        <div class="btn"> Music</div>
+                        <div class="btn"> Podcasts</div>
+                  </div>
+            </header>
+            <!-- overlay -->
+            <label for="nav-mobile" class="overlay "></label>
+            <!-- side bar -->
+            <div class="sidebar hide-on-mb-tl">
+                  <!-- sidebar control  -->
+                  <div class="sidebar-control">
+                        <div class="sidebar-control__item sidebar-control__item--active">
+                              <i class="fa-solid fa-house sidebar-control__icon"></i>
+                              <span class="sidebar__control__title">Home</span>
+                        </div>
+                        <div class="sidebar-control__item"> 
+                              <i class="fa-solid fa-magnifying-glass sidebar-control__icon"></i>
+                              <span class="sidebar-control__title">Search</span>
+                        </div>
+                  </div>
+
+                  <!-- sidebar playlist  -->
+                  <div class="sidebar-playlist">
+                        <div class="sidebar-playlist__control">
+                              <div class="sidebar-playlist__control-lib">
+                                    <i class="fa-solid fa-bars sidebar-playlist__icon"></i>
+                                    <span class="sidebar__playlist__title"> Library </span>
+                              </div>
+                              <div class="sidebar__playlist__control-option">
+                                    <i class="fa-solid fa-plus sidebar-playlist__icon"></i>
+                                    <i class="fa-solid fa-arrow-right sidebar-playlist__icon"></i>
+                              </div>
+                        </div>
+
+                        <div class="sidebar-playlist__option">
+                              <div class="btn ">Playlist</div>
+                        </div>
+
+                        <div class="sidebar-playlist__search">
+                              <i class="fa-solid fa-magnifying-glass sidebar-playlist__icon"></i>
+                              <div class="sidebar-playlist__search-recently">
+                                    <span>Recently</span>
+                                    <i class="fa-solid fa-list sidebar-playlist__icon"></i>
+                              </div>
+                        </div>
+                        <div class="sidebar-playlist__songs">
+                              
+                        </div>
+                  </div>
+            </div>
+
+            <!-- Body -->
+            <div class="main">
+                  <div class="grid">
+                        <!-- recommend -->
+                        <div class="recommend">
+                              <div class="row"></div>
+                        </div>
+
+                        <!-- For you -->
+                        <div class="foryou">
+                              <div class="header-selection">
+                                    <a href="#" class="header-selection__title">For You</a>
+                                    <a href="#" class="header-selection__more">Show all</a>
+                              </div>
+
+                              <div class="playlist">
+                                    <div class="row"></div>
+                              </div>
+                        </div>
+
+                        <!-- Today -->
+                        <div class="today">
+                              <div class="header-selection">
+                                    <a href="#" class="header-selection__title">Your top collection</a>
+                                    <a href="#" class="header-selection__more">Show all</a>
+                              </div>
+
+                              <div class="playlist">
+                                    <div class="row"></div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="footer">
+                  <div class="current-song current-song--active">
+                        <div class="current-song__thumb" style="background-image: url(./Assets/Img/pic1.jpg);"></div>
+                        <div class="current-song__body hide-on-mb">
+                              <div class="current-song__name">Yêu em 2 ngày</div>
+                              <div class="current-song__singer">Duong Domic</div>
+                        </div>
+                        <div class="current-song__control-icon hide-on-mb">
+                              <i class="fa-regular fa-heart current-song__icon current-song__icon-nonlike"></i>
+                              <i class="fa-solid fa-heart current-song__icon current-song__icon-like"></i>
+                        </div>
+                  </div>
+
+                  <div class="footer-controlled">
+                        <div class="btn-control">
+                              <div class="btn-random btn-icon">
+                                    <i class="fa-solid fa-shuffle"></i>
+                              </div>
+                              
+                              <div class="btn-prev btn-icon">
+                                    <i class="fa-solid fa-backward-step"></i>
+                              </div>
+                              <div class="btn-toggle-play btn-icon">
+                                    <i class="fa-solid fa-circle-play btn-icon__play"></i>
+                                    <i class="fa-solid fa-circle-pause btn-icon__pause"></i>
+                              </div>
+                              <div class="btn-next btn-icon">
+                                    <i class="fa-solid fa-forward-step"></i>
+                              </div>
+                              <div class="btn-repeat btn-icon">
+                                    <i class="fa-solid fa-repeat"></i>
+                              </div>
+                        </div>
+                        <div class="time-control">
+                              <div class="time-start">0:00</div>
+                              <input type="range" id="progress" class="progress" value="0" step="1" min="0" max="100">
+                              <div class="time-end">0:00</div>
+                        </div>
+                        <audio src="" id="audio"></audio>
+                  </div>
+
+                  <div class="footer-option">
+                        <div class="footer-option__listwait footer-icon hide-on-mb">
+                              <i class="fa-solid fa-bars-staggered"></i>
+                        </div>
+                        <div class="footer-option__device footer-icon hide-on-mb">
+                              <i class="fa-solid fa-computer"></i>
+                        </div>
+                        <div class="footer-option__sound">
+                              <i class="fa-solid fa-volume-high footer-icon volume-icon"></i>
+                              <input type="range" id="audio-progress" class="audio-progress" value="100" step="1" min="0" max="100">
+                        </div>
+                        <div class="footer-option__scale footer-icon hide-on-mb">
+                              <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+                        </div>
+                        <div class="footer-option__full footer-icon hide-on-mb">
+                              <i class="fa-solid fa-expand"></i>
+                        </div>
+                  </div>
+            </footer>
+      </div>
+</body>
+<script src="./Assets/Js/main.js"></script>
+</html>

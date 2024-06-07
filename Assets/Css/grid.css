@@ -1,0 +1,1166 @@
+/* 
+    Lí do dùng box-sizing: border-box
+    theo kiến thức của mình học được thì mình có thể trả lời như này
+    thuộc tín box-sizing: border-box là tính width với height từ phần border luôn
+    còn nếu ko thì nó sẽ tính từ content thôi, vd như bạn đặt width là 300px 
+    mà để border là 1px và padding là 3px thì nếu ko có box-sizing: border-box 
+    nó sẽ ra ra width là 308px (300+12+32), còn nếu có thì nó sẽ ra đúng 300px. 
+    nên trong video này nếu ko có box-sizing: border-box thì mổi ô sẽ có kích thước 
+    lớn hơn tỉ lệ ban đầu vì có thêm padding nên nó sẽ bị xuống hàng
+    nếu có sai sót gì thì mong các bác góp ý với ạ :D
+
+
+    Ý kiến của Thành Tạ
+    nói thẳng ra là thuộc tính box-sizing: border-box. 
+    cho dù pading hay border các kiểu thì nó vẫn giữ width với hight ban đầu
+*/
+
+:root
+{
+    --mb-gutter:3px;
+    --mb-gutter-negative:-3px;
+    --tl-gutter:4px;
+    --tl-gutter-negative:-4px;
+    --pc-low-gutter:2px;
+    --pc-low-gutter-negative:-2px;
+    --pc-hi-gutter:2px;
+    --pc-hi-gutter-negative:-2px;
+}
+
+.grid
+{
+    width: 100%;
+    display: block;
+    padding: 0;
+}
+
+.grid.wide
+{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* row */
+.row
+{
+    /* Chứa các column, giúp column nằm ngang */
+    display: flex;
+    /* Tổng chiểu ngang column vượt quá row thì xuống hàng */
+    flex-wrap: wrap;
+    /* Bỏ 2 phần thừa do gutters tạo ra ở 2 phía */
+    margin-left: var(--mb-gutter-negative);
+    margin-right: var(--mb-gutter-negative);
+}
+
+/* bỏ gutters */
+.row.no-gutters
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col
+{
+    padding-left: var(--mb-gutter);
+    padding-right: var(--mb-gutter);
+}
+
+.row.no-gutters .col
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.mb-0
+{
+    display: none;
+}
+
+.mb-1
+{
+    /* cách tính là (100% / 12)*1 */
+    /* flex grow, shrink, basic */
+    flex:0 0 8.33333%;
+    /* chiều dài tối đa */
+    max-width: 8.33333%;
+}
+
+.mb-2
+{
+    flex: 0 0 16.66667%;
+    max-width: 16.66667%;
+}
+
+.mb-3
+{
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.mb-4
+{
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+
+.mb-5
+{
+    flex:0 0 41.66667%;
+    max-width: 41.66667%;
+}
+
+.mb-6
+{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.mb-7
+{
+    flex: 0 0 58.33333%;
+    max-width: 58.33333%;
+}
+
+.mb-8
+{
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+}
+
+.mb-9
+{
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.mb-10
+{
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+}
+
+.mb-11
+{
+    flex: 0 0 91.66667%;
+    max-width: 91.66667%;
+}
+
+.mb-12
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/* column offset mobile */
+/* offset là di chuyển vị trí cho column */
+.mb-o-1
+{
+    margin-left: 8.33333%;
+}
+
+.mb-o-2
+{
+    margin-left: 16.66667%;
+}
+
+.mb-o-3
+{
+    margin-left: 25%;
+}
+
+.mb-o-4
+{
+    margin-left: 33.33333%;
+}
+
+.mb-o-5
+{
+    margin-left: 41.66667%;
+}
+
+.mb-o-6
+{
+    margin-left: 50%;
+}
+
+.mb-o-7
+{
+    margin-left: 58.33333%;
+}
+
+.mb-o-8
+{
+    margin-left: 66.66667%;
+}
+
+.mb-o-9
+{
+    margin-left: 75%;
+}
+
+.mb-o-10
+{
+    margin-left: 83.33333%;
+}
+
+.mb-o-11
+{
+    margin-left: 91.66667%;
+}
+
+/* >= tablet */
+@media (min-width:740px)
+{
+    .row
+    {
+        margin-left: var(--tl-gutter-negative);
+        margin-right: var(--tl-gutter-negative);
+    }
+
+    .col 
+    {
+        padding-left: var(--tl-gutter);
+        padding-right: var(--tl-gutter);
+    }
+
+    /* dùng để set được chiều cao và dài cho các thẻ */
+    .tl-1,
+    .tl-2,
+    .tl-3,
+    .tl-4,
+    .tl-5,
+    .tl-6,
+    .tl-7,
+    .tl-8,
+    .tl-9,
+    .tl-10,
+    .tl-11,
+    .tl-12
+    {
+        display: block;
+    }
+
+    .tl-0
+    {
+        display: none;
+    }
+
+    .tl-1
+    {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+
+    .tl-2
+    {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .tl-3
+    {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .tl-4
+    {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .tl-5
+    {
+        flex:0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .tl-6
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .tl-7
+    {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .tl-8
+    {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .tl-9
+    {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .tl-10
+    {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .tl-11
+    {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .tl-12
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* column offset tablet */
+    .tl-o-1
+    {
+        margin-left: 8.33333%;
+    }
+
+    .tl-o-2
+    {
+        margin-left: 16.66667%;
+    }
+
+    .tl-o-3
+    {
+        margin-left: 25%;
+    }
+
+    .tl-o-4
+    {
+        margin-left: 33.33333%;
+    }
+
+    .tl-o-5
+    {
+        margin-left: 41.66667%;
+    }
+
+    .tl-o-6
+    {
+        margin-left: 50%;
+    }
+
+    .tl-o-7
+    {
+        margin-left: 58.33333%;
+    }
+
+    .tl-o-8
+    {
+        margin-left: 66.66667%;
+    }
+
+    .tl-o-9
+    {
+        margin-left: 75%;
+    }
+
+    .tl-o-10
+    {
+        margin-left: 83.33333%;
+    }
+
+    .tl-o-11
+    {
+        margin-left: 91.66667%;
+    }
+
+}
+
+
+/* pc low resolution > */
+@media (min-width:1113px)
+{
+    .row
+    {
+        margin-left: var(--pc-low-gutter-negative);
+        margin-right: var(--pc-low-gutter-negative);
+    }
+
+    .row.sm-gutter 
+    {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .col
+    {
+        padding-left: var(--pc-low-gutter);
+        padding-right: var(--pc-low-gutter);
+    }
+
+    .row.sm-gutter .col 
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .pc-1,
+    .pc-2,
+    .pc-2-4,
+    .pc-3,
+    .pc-4,
+    .pc-5,
+    .pc-6,
+    .pc-7,
+    .pc-8,
+    .pc-9,
+    .pc-10,
+    .pc-11,
+    .pc-12
+    {
+        display: block;
+    }
+
+    .pc-0
+    {
+        display: none;
+    }
+
+    .pc-1
+    {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+    
+    .pc-1-5
+    {
+        flex: 0 0 12.5%;
+        max-width: 0 0 12.5%;
+    }
+
+    .pc-2
+    {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .pc-2-4
+    {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .pc-3
+    {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .pc-4
+    {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .pc-5
+    {
+        flex:0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .pc-6
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .pc-7
+    {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .pc-8
+    {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .pc-9
+    {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .pc-10
+    {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .pc-11
+    {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .pc-12
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* column offset pc */
+
+    .pc-o-1
+    {
+        margin-left: 8.33333%;
+    }
+    
+    .pc-o-2
+    {
+        margin-left: 16.66667%;
+    }
+    
+    .pc-o-3
+    {
+        margin-left: 25%;
+    }
+    
+    .pc-o-4
+    {
+        margin-left: 33.33333%;
+    }
+    
+    .pc-o-5
+    {
+        margin-left: 41.66667%;
+    }
+    
+    .pc-o-6
+    {
+        margin-left: 50%;
+    }
+    
+    .pc-o-7
+    {
+        margin-left: 58.33333%;
+    }
+    
+    .pc-o-8
+    {
+        margin-left: 66.66667%;
+    }
+    
+    .pc-o-9
+    {
+        margin-left: 75%;
+    }
+    
+    .pc-o-10
+    {
+        margin-left: 83.33333%;
+    }
+    
+    .pc-o-11
+    {
+        margin-left: 91.66667%;
+    }
+}
+
+/* tablet - pc low resolution */
+@media (min-width: 740px) and (max-width: 1023px)
+{
+    .wide
+    {
+        width:644px;
+    }
+}
+
+/* pc low resolution */
+@media (min-width:1024px) and (max-width:1239px)
+{
+    .wide
+    {
+        width: 984px;
+    }
+
+    .wide .row
+    {
+        margin-left: var(--pc-low-gutter-negative);
+        margin-right: var(--pc-low-gutter-negative);
+    }
+
+    .wide .row.sm-gutter 
+    {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .wide .col
+    {
+        padding-left: var(--pc-low-gutter);
+        padding-right: var(--pc-low-gutter);
+    }
+
+    .wide .row.sm-gutter .col 
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .wide .pc-1,
+    .wide .pc-2,
+    .wide .pc-2-4,
+    .wide .pc-3,
+    .wide .pc-4,
+    .wide .pc-5,
+    .wide .pc-6,
+    .wide .pc-7,
+    .wide .pc-8,
+    .wide .pc-9,
+    .wide .pc-10,
+    .wide .pc-11,
+    .wide .pc-12
+    {
+        display: block;
+    }
+
+    .wide .pc-0
+    {
+        display: none;
+    }
+
+    .wide .pc-1
+    {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+
+    .wide .pc-1-5
+    {
+        flex: 0 0 12.5%;
+        max-width: 0 0 12.5%;
+    }
+
+    .wide .pc-2
+    {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .wide .pc-2-4
+    {
+        flex:0 0 20%;
+        max-width: 20%;
+    }
+
+    .wide .pc-3
+    {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .wide .pc-4
+    {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .wide .pc-5
+    {
+        flex:0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .wide .pc-6
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .wide .pc-7
+    {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .wide .pc-8
+    {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .wide .pc-9
+    {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .wide .pc-10
+    {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .wide .pc-11
+    {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .wide .pc-12
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* column offset pc wide */
+
+    .wide .pc-o-1
+    {
+        margin-left: 8.33333%;
+    }
+    
+    .wide .pc-o-2
+    {
+        margin-left: 16.66667%;
+    }
+    
+    .wide .pc-o-3
+    {
+        margin-left: 25%;
+    }
+    
+    .wide .pc-o-4
+    {
+        margin-left: 33.33333%;
+    }
+    
+    .wide .pc-o-5
+    {
+        margin-left: 41.66667%;
+    }
+    
+    .wide .pc-o-6
+    {
+        margin-left: 50%;
+    }
+    
+    .wide .pc-o-7
+    {
+        margin-left: 58.33333%;
+    }
+    
+    .wide .pc-o-8
+    {
+        margin-left: 66.66667%;
+    }
+    
+    .wide .pc-o-9
+    {
+        margin-left: 75%;
+    }
+    
+    .wide .pc-o-10
+    {
+        margin-left: 83.33333%;
+    }
+    
+    .wide .pc-o-11
+    {
+        margin-left: 91.66667%;
+    }
+
+}
+
+/* pc normal resolution */
+@media (min-width:1240px) and (max-width:1439px)
+{
+    .wide
+    {
+        width: 1200px;
+    }
+    
+    .wide .row
+    {
+        margin-left: var(--pc-low-gutter-negative);
+        margin-right: var(--pc-low-gutter-negative);
+    }
+
+    .wide .row.sm-gutter 
+    {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .wide .col
+    {
+        padding-left: var(--pc-low-gutter);
+        padding-right: var(--pc-low-gutter);
+    }
+
+    .wide .row.sm-gutter .col 
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .wide .pc-1,
+    .wide .pc-2,
+    .wide .pc-2-4,
+    .wide .pc-3,
+    .wide .pc-4,
+    .wide .pc-5,
+    .wide .pc-6,
+    .wide .pc-7,
+    .wide .pc-8,
+    .wide .pc-9,
+    .wide .pc-10,
+    .wide .pc-11,
+    .wide .pc-12
+    {
+        display: block;
+    }
+
+    .wide .pc-0
+    {
+        display: none;
+    }
+
+    .wide .pc-1
+    {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+
+    .wide .pc-1-5
+    {
+        flex: 0 0 12.5%;
+        max-width: 0 0 12.5%;
+    }
+
+    .wide .pc-2
+    {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .wide .pc-2-4
+    {
+        flex:0 0 20%;
+        max-width: 20%;
+    }
+
+    .wide .pc-3
+    {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .wide .pc-4
+    {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .wide .pc-5
+    {
+        flex:0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .wide .pc-6
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .wide .pc-7
+    {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .wide .pc-8
+    {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .wide .pc-9
+    {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .wide .pc-10
+    {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .wide .pc-11
+    {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .wide .pc-12
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* column offset pc wide */
+
+    .wide .pc-o-1
+    {
+        margin-left: 8.33333%;
+    }
+    
+    .wide .pc-o-2
+    {
+        margin-left: 16.66667%;
+    }
+    
+    .wide .pc-o-3
+    {
+        margin-left: 25%;
+    }
+    
+    .wide .pc-o-4
+    {
+        margin-left: 33.33333%;
+    }
+    
+    .wide .pc-o-5
+    {
+        margin-left: 41.66667%;
+    }
+    
+    .wide .pc-o-6
+    {
+        margin-left: 50%;
+    }
+    
+    .wide .pc-o-7
+    {
+        margin-left: 58.33333%;
+    }
+    
+    .wide .pc-o-8
+    {
+        margin-left: 66.66667%;
+    }
+    
+    .wide .pc-o-9
+    {
+        margin-left: 75%;
+    }
+    
+    .wide .pc-o-10
+    {
+        margin-left: 83.33333%;
+    }
+    
+    .wide .pc-o-11
+    {
+        margin-left: 91.66667%;
+    }
+}
+
+/* pc heigh resolution */
+@media (min-width:1440px)
+{
+    .wide
+    {
+        width: 1440px;
+    }
+
+    .wide .row
+    {
+        margin-left: var(--pc-hi-gutter-negative);
+        margin-right: var(--pc-hi-gutter-negative);
+    }
+
+    .wide .row.sm-gutter 
+    {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .wide .col
+    {
+        padding-left: var(--pc-hi-gutter);
+        padding-right: var(--pc-hi-gutter);
+    }
+
+    .wide .row.sm-gutter .col 
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .wide .pc-1,
+    .wide .pc-2,
+    .wide .pc-2-4,
+    .wide .pc-3,
+    .wide .pc-4,
+    .wide .pc-5,
+    .wide .pc-6,
+    .wide .pc-7,
+    .wide .pc-8,
+    .wide .pc-9,
+    .wide .pc-10,
+    .wide .pc-11,
+    .wide .pc-12
+    {
+        display: block;
+    }
+
+    .wide .pc-0
+    {
+        display: none;
+    }
+
+    .wide .pc-1
+    {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+
+    .wide .pc-1-5
+    {
+        flex: 0 0 12.5%;
+        max-width: 0 0 12.5%;
+    }
+
+    .wide .pc-2
+    {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .wide .pc-2-4
+    {
+        flex:0 0 20%;
+        max-width: 20%;
+    }
+
+    .wide .pc-3
+    {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .wide .pc-4
+    {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .wide .pc-5
+    {
+        flex:0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .wide .pc-6
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .wide .pc-7
+    {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .wide .pc-8
+    {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .wide .pc-9
+    {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .wide .pc-10
+    {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .wide .pc-11
+    {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .wide .pc-12
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* column offset pc wide */
+
+    .wide .pc-o-1
+    {
+        margin-left: 8.33333%;
+    }
+    
+    .wide .pc-o-2
+    {
+        margin-left: 16.66667%;
+    }
+    
+    .wide .pc-o-3
+    {
+        margin-left: 25%;
+    }
+    
+    .wide .pc-o-4
+    {
+        margin-left: 33.33333%;
+    }
+    
+    .wide .pc-o-5
+    {
+        margin-left: 41.66667%;
+    }
+    
+    .wide .pc-o-6
+    {
+        margin-left: 50%;
+    }
+    
+    .wide .pc-o-7
+    {
+        margin-left: 58.33333%;
+    }
+    
+    .wide .pc-o-8
+    {
+        margin-left: 66.66667%;
+    }
+    
+    .wide .pc-o-9
+    {
+        margin-left: 75%;
+    }
+    
+    .wide .pc-o-10
+    {
+        margin-left: 83.33333%;
+    }
+    
+    .wide .pc-o-11
+    {
+        margin-left: 91.66667%;
+    }
+}
